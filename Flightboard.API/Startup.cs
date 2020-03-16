@@ -1,5 +1,7 @@
+using Flightboard.API.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -19,6 +21,8 @@ namespace Flightboard.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<FlightboardDbContext>(options => options.UseInMemoryDatabase(databaseName: "Flightboard"));
+
+            services.AddScoped<AirlineService>();
 
             services.AddControllers();
         }

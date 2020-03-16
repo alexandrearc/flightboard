@@ -1,4 +1,6 @@
-﻿namespace Flightboard.API.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Flightboard.API.Models
 {
     public class Flight
     {
@@ -6,6 +8,7 @@
         {
         }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Number { get; set; }
         public string Status { get; set; }

@@ -9,6 +9,12 @@ namespace Flightboard.API.Data
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Flight>().ToTable(typeof(Flight).Name);
+        }
+
+
         public DbSet<Airline> Airlines { get; set; }
         public DbSet<Flight> Flights { get; set; }
     }

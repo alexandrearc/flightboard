@@ -8,9 +8,19 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Data\" />
+    <Folder Include="Requests\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="mono_crash.91852a856.0.json" />
+    <Content Remove="mono_crash.91852a856.0.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="mono_crash.mem.17382.1.blob" />
   </ItemGroup>
 </Project>
