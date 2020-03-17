@@ -4,7 +4,7 @@ using Flightboard.API.Data;
 using Flightboard.API.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Flightboard.API
+namespace Flightboard.API.Services
 {
     public class AirlineService
     {

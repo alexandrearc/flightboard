@@ -36,8 +36,10 @@ namespace Flightboard.API.Controllers
             var flight = await _flightService.CreateAsync(new Flight
             {
                 Number = request.Number,
-                DayOfWeek = request.DayOfWeek
-            });
+                DayOfWeek = request.DayOfWeek,
+                Destination = request.Destination,
+                ScheduledDepartureTime = request.ScheduledDepartureTime
+            }); 
 
             return flight;
         }

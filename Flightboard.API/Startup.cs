@@ -25,7 +25,8 @@ namespace Flightboard.API
 
             services.AddScoped<AirlineService>();
             services.AddScoped<FlightService>();
-            
+            services.AddScoped<ScheduleService>();
+
             services.AddControllers()
                 .AddNewtonsoftJson(); //Framework no longer uses Jsonl.net by default;
         }

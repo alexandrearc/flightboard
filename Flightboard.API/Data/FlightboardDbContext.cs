@@ -18,12 +18,18 @@ namespace Flightboard.API.Data
                         .Property( f => f.DayOfWeek)
                         .HasConversion(
                             v => v.ToString(),
-                            v => (DaysOfWeek)Enum.Parse(typeof(DaysOfWeek), v));
+                            v => (DaysOfWeek) Enum.Parse(typeof(DaysOfWeek), v));
 
+            modelBuilder.Entity<Schedule>().ToTable(typeof(Schedule).Name)
+                        .Property(f => f.Status)
+                        .HasConversion(
+                            v => v.ToString(),
+                            v => (Status) Enum.Parse(typeof(Status), v));
         }
 
 
         public DbSet<Airline> Airlines { get; set; }
         public DbSet<Flight> Flights { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
     }
 }

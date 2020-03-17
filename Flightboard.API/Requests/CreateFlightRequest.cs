@@ -1,4 +1,5 @@
-﻿using Flightboard.API.Models;
+﻿using System;
+using Flightboard.API.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
@@ -10,5 +11,7 @@ namespace Flightboard.API.Requests
 
         [JsonConverter(typeof(StringEnumConverter))]
         public DaysOfWeek DayOfWeek { get; set; }
+        public string Destination { get; set; }
+        public DateTime ScheduledDepartureTime { get; set; }
     }
 }

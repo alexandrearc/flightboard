@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Flightboard.API.Models;
 using Flightboard.API.Requests;
+using Flightboard.API.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Flightboard.API.Controllers
