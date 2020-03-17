@@ -26,8 +26,7 @@ namespace Flightboard.API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Airline>>> GetAll()
         {
-            var airlines = await _airlineService.GetAllAsync();
-            return airlines;
+            return await _airlineService.GetAllAsync(); ;
         }
 
         [HttpPost]

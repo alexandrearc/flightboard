@@ -1,4 +1,5 @@
-﻿using Flightboard.API.Models;
+﻿using System;
+using Flightboard.API.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Flightboard.API.Data
@@ -11,7 +12,14 @@ namespace Flightboard.API.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Flight>().ToTable(typeof(Flight).Name);
+            modelBuilder.Entity<Airline>().ToTable(typeof(Airline).Name);
+
+            modelBuilder.Entity<Flight>().ToTable(typeof(Flight).Name)
+                        .Property( f => f.DayOfWeek)
+                        .HasConversion(
+                            v => v.ToString(),
+                            v => (DaysOfWeek)Enum.Parse(typeof(DaysOfWeek), v));
+
         }
 
 

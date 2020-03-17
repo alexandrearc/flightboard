@@ -1,4 +1,5 @@
 using Flightboard.API.Data;
+using Flightboard.API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -23,8 +24,10 @@ namespace Flightboard.API
             services.AddDbContext<FlightboardDbContext>(options => options.UseInMemoryDatabase(databaseName: "Flightboard"));
 
             services.AddScoped<AirlineService>();
-
-            services.AddControllers();
+            services.AddScoped<FlightService>();
+            
+            services.AddControllers()
+                .AddNewtonsoftJson(); //Framework no longer uses Jsonl.net by default;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
