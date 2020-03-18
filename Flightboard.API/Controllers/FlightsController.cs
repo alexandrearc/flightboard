@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Threading.Tasks;
 using Flightboard.API.Models;
 using Flightboard.API.Requests;
@@ -38,7 +40,7 @@ namespace Flightboard.API.Controllers
                 Number = request.Number,
                 DayOfWeek = request.DayOfWeek,
                 Destination = request.Destination,
-                ScheduledDepartureTime = request.ScheduledDepartureTime
+                ScheduledDepartureTime = DateTime.ParseExact(request.ScheduledDepartureTime, "HH:mm:ss", CultureInfo.InvariantCulture)
             }); 
 
             return flight;

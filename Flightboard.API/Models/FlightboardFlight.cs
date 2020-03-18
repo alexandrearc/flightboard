@@ -1,15 +1,17 @@
 ﻿using System;
-
 namespace Flightboard.API.Models
 {
-    public class Schedule
+    public class FlightboardFlight
     {
-        public Schedule()
+        public FlightboardFlight()
         {
         }
 
-        public int Id { get; set; }
         public int FlightId { get; set; }
+        public string Number { get; set; }
+        public string Destination { get; set; }
+        public DateTime ScheduledDepartureTime { get; set; }
+        public DayOfWeek DayOfWeek { get; set; }
         public DateTime EstimatedDepartureTime { get; set; }
         public DateTime ActualDepartureTime { get; set; }
         public DateTime Date { get; set; }

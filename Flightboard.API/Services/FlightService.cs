@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Flightboard.API.Data;
 using Flightboard.API.Models;
@@ -30,6 +32,12 @@ namespace Flightboard.API.Services
         public async Task<List<Flight>> GetAllAsync()
         {
             return await _db.Flights.ToListAsync();
+        }
+
+        public async Task<List<Flight>> GetFlightsByDateAsync(DateTime date)
+        {
+            var dayOfWeek = date.DayOfWeek;
+            return await _db.Flights.Where(f => f.DayOfWeek == dayOfWeek).ToListAsync();
         }
     }
 }

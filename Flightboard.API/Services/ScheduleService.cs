@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Flightboard.API.Data;
 using Flightboard.API.Models;
@@ -30,6 +32,11 @@ namespace Flightboard.API.Services
         public async Task<List<Schedule>> GetAllAsync()
         {
             return await _db.Schedules.ToListAsync();
+        }
+
+        public async Task<Schedule> GetByFlightAndDate(int flightId, DateTime date)
+        {
+            return await _db.Schedules.Where(s => s.FlightId == flightId && s.Date.Date == date.Date).FirstOrDefaultAsync();
         }
     }
 }

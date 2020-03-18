@@ -24,6 +24,7 @@ namespace Flightboard.API
             services.AddDbContext<FlightboardDbContext>(options => options.UseInMemoryDatabase(databaseName: "Flightboard"));
 
             services.AddScoped<AirlineService>();
+            services.AddScoped<FlightboardService>();
             services.AddScoped<FlightService>();
             services.AddScoped<ScheduleService>();
 
