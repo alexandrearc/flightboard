@@ -1,10 +1,11 @@
 ﻿using System;
 using Flightboard.API.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Flightboard.API.Data
 {
-    public class FlightboardDbContext : DbContext
+    public class FlightboardDbContext : IdentityDbContext<User>
     {
         public FlightboardDbContext(DbContextOptions<FlightboardDbContext> options) : base(options)
         {
@@ -12,6 +13,8 @@ namespace Flightboard.API.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Airline>().ToTable(typeof(Airline).Name);
 
             modelBuilder.Entity<Flight>().ToTable(typeof(Flight).Name)

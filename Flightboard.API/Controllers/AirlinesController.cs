@@ -3,10 +3,12 @@ using System.Threading.Tasks;
 using Flightboard.API.Models;
 using Flightboard.API.Requests;
 using Flightboard.API.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Flightboard.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class AirlinesController : ControllerBase
