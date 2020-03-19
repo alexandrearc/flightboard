@@ -24,6 +24,13 @@ namespace Flightboard.API.Services
             return schedule;
         }
 
+        public async Task<Schedule> UpdateAsync(Schedule schedule)
+        {
+            _db.Schedules.Attach(schedule).State = EntityState.Modified;
+            await _db.SaveChangesAsync();
+            return schedule;
+        }
+
         public async Task<Schedule> GetByIdAsync(int id)
         {
             return await _db.Schedules.FindAsync(id);

@@ -15,6 +15,7 @@ namespace Flightboard.API.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Airport>().ToTable(typeof(Airport).Name);
             modelBuilder.Entity<Airline>().ToTable(typeof(Airline).Name);
 
             modelBuilder.Entity<Flight>().ToTable(typeof(Flight).Name)
@@ -31,6 +32,7 @@ namespace Flightboard.API.Data
         }
 
         public DbSet<Airline> Airlines { get; set; }
+        public DbSet<Airport> Airports { get; set; }
         public DbSet<Flight> Flights { get; set; }
         public DbSet<Schedule> Schedules { get; set; }
     }

@@ -41,6 +41,7 @@ namespace Flightboard.API
             });
 
             services.AddScoped<AirlineService>();
+            services.AddScoped<AirportService>();
             services.AddScoped<FlightboardService>();
             services.AddScoped<FlightService>();
             services.AddScoped<ScheduleService>();

@@ -43,5 +43,18 @@ namespace Flightboard.API.Controllers
 
             return await _airlineService.CreateAsync(airline);
         }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Airline>> Put(int id, [FromBody] AirlineCreateRequest request)
+        {
+            var airline = new Airline
+            {
+                Id = id,
+                Name = request.Name,
+                ShortName = request.ShortName
+            };
+
+            return await _airlineService.UpdateAsync(airline);
+        }
     }
 }

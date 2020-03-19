@@ -22,6 +22,13 @@ namespace Flightboard.API.Services
             return airline;
         }
 
+        public async Task<Airline> UpdateAsync(Airline airline)
+        {
+            _db.Airlines.Attach(airline).State = EntityState.Modified;
+            await _db.SaveChangesAsync();
+            return airline;
+        }
+
         public async Task<Airline> GetByIdAsync(int id)
         {
             return await _db.Airlines.FindAsync(id);

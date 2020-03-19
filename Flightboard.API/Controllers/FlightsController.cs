@@ -43,7 +43,22 @@ namespace Flightboard.API.Controllers
                 DayOfWeek = request.DayOfWeek,
                 Destination = request.Destination,
                 ScheduledDepartureTime = DateTime.ParseExact(request.ScheduledDepartureTime, "HH:mm:ss", CultureInfo.InvariantCulture)
-            }); 
+            });
+
+            return flight;
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<Flight>> Put(int id, [FromBody] FlightCreateRequest request)
+        {
+            var flight = await _flightService.UpdateAsync(new Flight
+            {
+                Id = id,
+                Number = request.Number,
+                DayOfWeek = request.DayOfWeek,
+                Destination = request.Destination,
+                ScheduledDepartureTime = DateTime.ParseExact(request.ScheduledDepartureTime, "HH:mm:ss", CultureInfo.InvariantCulture)
+            });
 
             return flight;
         }

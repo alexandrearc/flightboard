@@ -15,5 +15,6 @@ namespace Flightboard.API.Models
         public string Destination { get; set; }
         public DateTime ScheduledDepartureTime { get; set; }
         public DayOfWeek DayOfWeek { get; set; }
+        public int AirportId { get; set; }
     }
 }

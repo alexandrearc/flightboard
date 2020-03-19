@@ -45,5 +45,20 @@ namespace Flightboard.API.Controllers
 
             return schedule;
         }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Schedule>> Put(int id, [FromBody] ScheduleCreateRequest request)
+        {
+            var schedule = await _scheduleService.UpdateAsync(new Schedule
+            {
+                Id = id,
+                ActualDepartureTime = request.ActualDepartureTime,
+                EstimatedDepartureTime = request.EstimatedDepartureTime,
+                FlightId = request.FlightId,
+                Status = request.Status
+            });
+
+            return schedule;
+        }
     }
 }
