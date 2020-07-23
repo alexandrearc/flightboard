@@ -29,7 +29,7 @@ namespace Flightboard.API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Airline>>> GetAll()
         {
-            return await _airlineService.GetAllAsync(); ;
+            return await _airlineService.GetAllAsync();
         }
 
         [HttpPost]
